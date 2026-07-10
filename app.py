@@ -1,19 +1,17 @@
 from flask import Flask, render_template, request
+import os
+import gdown
 import joblib
-import pandas as pd
 
 app = Flask(__name__)
 
-# -----------------------------
-# Load Trained Model
-# -----------------------------
-model = joblib.load("Customer_Prediction_Model.pkl")
+MODEL_FILE = "Customer_Prediction_Model.pkl"
 
-# -------------------------------------------------------
-# IMPORTANT:
-# Replace these names with the exact columns used in X
-# during model training.
-# -------------------------------------------------------
+if not os.path.exists(MODEL_FILE):
+    url = "https://drive.google.com/file/d/1XIFORRSiw1S0hMpimNtxgD7qbEW3WUgF/view?usp=sharing"
+    gdown.download(url, MODEL_FILE, quiet=False)
+
+model = joblib.load(MODEL_FILE)
 feature_columns = [
     "Region",
     "Category",
