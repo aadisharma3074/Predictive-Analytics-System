@@ -3,7 +3,7 @@ import joblib
 
 app = Flask(__name__)
 
-MODEL_FILE = "model/Customer_Prediction_Model.pkl"
+MODEL_FILE = "Customer_Prediction_Model .pkl"
 model = joblib.load(MODEL_FILE)
 feature_columns = [
     "Region",
