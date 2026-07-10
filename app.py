@@ -8,7 +8,7 @@ app = Flask(__name__)
 MODEL_FILE = "Customer_Prediction_Model.pkl"
 
 if not os.path.exists(MODEL_FILE):
-    url = "https://drive.google.com/file/d/1XIFORRSiw1S0hMpimNtxgD7qbEW3WUgF/view?usp=sharing"
+    url = "https://drive.google.com/file/d/1XIFORRSiw1S0hMpimNtxgD7qbEW3WUgF"
     gdown.download(url, MODEL_FILE, quiet=False)
 
 model = joblib.load(MODEL_FILE)
