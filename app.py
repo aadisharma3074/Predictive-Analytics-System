@@ -1,16 +1,9 @@
 from flask import Flask, render_template, request
-import os
-import gdown
 import joblib
 
 app = Flask(__name__)
 
 MODEL_FILE = "Customer_Prediction_Model.pkl"
-
-if not os.path.exists(MODEL_FILE):
-    url = "https://drive.google.com/file/d/1XIFORRSiw1S0hMpimNtxgD7qbEW3WUgF"
-   gdown.download(url, MODEL_FILE, quiet=False, fuzzy=True)
-
 model = joblib.load(MODEL_FILE)
 feature_columns = [
     "Region",
